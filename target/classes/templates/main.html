@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Main</title>
+</head>
+<body>
+<div>
+    <form th:action="@{/logout}" method="post">
+
+    <input type="submit" value="Sign Out"/>
+</form>
+</div>
+    <div>
+        <form method="post" action="/add">
+            <input type="text" name="text" placeholder="Message" />
+            <input type="text" name="tag" placeholder="Tag">
+            <button type="submit">Add</button>
+        </form>
+    </div>
+    <div>
+        <form method="post" action="filter">
+            <input type="text" name="filter">
+            <button type="submit">Find</button>
+        </form>
+    </div>
+    <div>
+    <p/>Message</p>
+    <tr th:each="each : ${messages}">
+        <td th:text="${each.id}"></td>
+        <td th:text="${each.text}"></td>
+        <td th:text="${each.tag}"></td>
+        <br />
+    </tr>
+</div>
+</body>
+</html>
